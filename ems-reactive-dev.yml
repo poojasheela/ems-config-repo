@@ -2,17 +2,23 @@ spring:
   application:
     name: ems-reactive
 
+  config:
+    import: "vault:"
+
   cloud:
     vault:
       uri: http://localhost:8200
-      token: myroot
+      token: hvs.icx5rZCjvnkAOnqInOa5si8g
+      authentication: TOKEN
       kv:
         enabled: true
         backend: secret
+        default-context: application
 
   data:
     mongodb:
       uri: mongodb://mongouser:mongopassword@localhost:27017/emsDB
+
   main:
     web-application-type: reactive
 
@@ -21,13 +27,11 @@ server:
   reactive:
     context-path: /ems
 
-randomuser:
-  base-url: https://randomuser.me/api
-  enabled: true
-
 github:
-  token: ${GITHUB_TOKEN:dummy-token}  
+  token: ${github.token}
   owner: poojasheela
   repo: ems
   workflowFileName: build.yml
   ref: main
+
+  
