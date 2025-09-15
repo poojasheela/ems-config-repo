@@ -1,4 +1,0 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb://mongouser:mongopassword@localhost:27017/emsDB
