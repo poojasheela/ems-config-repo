@@ -26,7 +26,7 @@ randomuser:
   enabled: true
 
 github:
-  token: ${github.token}
+  token: ${GITHUB_TOKEN:dummy-token}  
   owner: poojasheela
   repo: ems
   workflowFileName: build.yml
